@@ -24,14 +24,7 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58024657-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-
-</script>
+<script src="ga.js"></script>
 
 <script>
 var cust_No = $_GET['utm_term'] ;
@@ -65,6 +58,10 @@ if (cust_No == undefined){var cust_No = null ;}
   }
 
   function mk_cookie(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
       gtag('config', 'UA-58024657-5')
       console.log('1');
   }
