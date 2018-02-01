@@ -28,8 +28,8 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  console.log('0');
 
-  gtag('config', 'UA-58024657-5');
 </script>
 
 <script>
@@ -37,6 +37,7 @@ gtag('config', 'UA-58024657-5', {
     'cookie_name': 'gaCookie',
     'cookie_expires':63072000,
     });
+console.log('1');
 </script>
 
 
@@ -78,14 +79,15 @@ gtag('config', 'UA-58024657-5', {
   }
   var cidL = cID("_ga").split(".").length;
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  console.log('2');
 
 </script>
 <script>
 gtag('config', 'UA-58024657-5', {
-    'cookie_name': 'gaCookie',
-    'cookie_expires':63072000,
     'dimension1': TSB_ga_Cookie 
     });
+console.log('3');
+
 </script>
 
 </html>
