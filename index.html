@@ -28,8 +28,18 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 <script>
 var cust_No = $_GET['utm_term'] ;
 if (cust_No == undefined){var cust_No = null ;}
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ alert('ok');
 
-
+ gtag('config', 'UA-109454817-1', {
+     'user_id':cust_No,
+     'cookie_expires':63072000,
+     'dimension1': cust_No,
+     'dimension2': TSB_ga_Cookie,
+     'dimension3': TSB_SAS_Cookie  
+     });
 </script>
 
 
@@ -44,20 +54,11 @@ if (cust_No == undefined){var cust_No = null ;}
     if(cID("LisboaCSApersisted")!= null){
       var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
     }   
-    gtag('config', 'UA-109454817-1', {
-        'user_id':cust_No,
-        'cookie_expires':63072000,
-        'dimension1': cust_No,
-        'dimension2': TSB_ga_Cookie,
-        'dimension3': TSB_SAS_Cookie  
-        });
+
   }
 
   function mk_cookie(){
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    alert('ok');
+ 
   }
 
   function cID(name) {
