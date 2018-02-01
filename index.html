@@ -56,6 +56,8 @@ if (cust_No == undefined){var cust_No = null ;}
   
   function get_cookie(callback){
     (callback && typeof(callback)==="function") && callback();
+    console.log('2');
+
     var cidL = cID("_ga").split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
  
@@ -64,6 +66,7 @@ if (cust_No == undefined){var cust_No = null ;}
 
   function mk_cookie(){
       gtag('config', 'UA-58024657-5')
+      console.log('1');
   }
 
   function cID(name) {
