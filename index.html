@@ -34,11 +34,8 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 
 <script>
 gtag('config', 'UA-58024657-5', {
-    'user_id':cust_No,
+    'cookie_name': 'gaCookie',
     'cookie_expires':63072000,
-    'dimension1': cust_No,
-    'dimension2': TSB_ga_Cookie,
-    'dimension3': TSB_SAS_Cookie  
     });
 </script>
 
@@ -73,4 +70,22 @@ gtag('config', 'UA-58024657-5', {
   <area shape="rect" coords="285,414,505,539" href="index2.html" target="_parent" />
 </map>
 </body>
+<script type="text/javascript">
+  function cID(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+  var cidL = cID("_ga").split(".").length;
+  var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+
+</script>
+<script>
+gtag('config', 'UA-58024657-5', {
+    'cookie_name': 'gaCookie',
+    'cookie_expires':63072000,
+    'dimension1': TSB_ga_Cookie 
+    });
+</script>
+
 </html>
