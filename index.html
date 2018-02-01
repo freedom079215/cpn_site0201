@@ -44,11 +44,24 @@ if(cID("LisboaCSApersisted")!= null){
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58024657-5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){
+    dataLayer.push(arguments);
+    var cidL = cID("_ga").split(".").length;
+    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+
+  }
   gtag('js', new Date());
 
 </script>
-
+<script>
+gtag('config', 'UA-58024657-5', {
+    'user_id':cust_No,
+    'cookie_expires':63072000,
+    'dimension1': cust_No,
+    'dimension2': TSB_ga_Cookie,
+    'dimension3': TSB_SAS_Cookie  
+    });
+</script>
 
 </head>
 
@@ -79,13 +92,5 @@ if(cID("LisboaCSApersisted")!= null){
   <area shape="rect" coords="285,414,505,539" href="index2.html" target="_parent" />
 </map>
 </body>
-<script>
-gtag('config', 'UA-58024657-5', {
-    'user_id':cust_No,
-    'cookie_expires':63072000,
-    'dimension1': cust_No,
-    'dimension2': TSB_ga_Cookie,
-    'dimension3': TSB_SAS_Cookie  
-    });
-</script>
+
 </html>
