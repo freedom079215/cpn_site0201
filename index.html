@@ -12,15 +12,7 @@ body {
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script>
-var $_GET = {};
-document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-function decode(s) {
-return decodeURIComponent(s.split("+").join(" "));
-}
-$_GET[decode(arguments[1])] = decode(arguments[2]);
-});
-</script>
+
 
 <script>
 var cust_No = $_GET['utm_term'] ;
@@ -46,6 +38,13 @@ if(cID("LisboaCSApersisted")!= null){
   window.dataLayer = window.dataLayer || [];
   function gtag(){
     dataLayer.push(arguments);
+    var $_GET = {};
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+    function decode(s) {
+    return decodeURIComponent(s.split("+").join(" "));
+    }
+    $_GET[decode(arguments[1])] = decode(arguments[2]);
+    });
     var cidL = cID("_ga").split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
 
