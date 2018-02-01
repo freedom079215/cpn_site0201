@@ -34,10 +34,6 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 </script>
 
 <script>
-var cust_No = $_GET['utm_term'] ;
-if (cust_No == undefined){var cust_No = null ;}
-</script>
-<script>
   gtag('config', 'UA-58024657-5', {
     'user_id':cust_No,
     'cookie_expires':63072000,
@@ -48,34 +44,6 @@ if (cust_No == undefined){var cust_No = null ;}
 </script>
 
 
-
-
-
-<script type="text/javascript">
-  
-  function get_cookie(callback){
-    (callback && typeof(callback)==="function") && callback();
-    var cidL = cID("_ga").split(".").length;
-    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
-    if(cID("LisboaCSApersisted")!= null){
-      var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
-    }   
-
-  }
-
-  function mk_cookie(){
- 
-  }
-
-  function cID(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-  }
-
-  get_cookie(mk_cookie);
-
-</script>
 
   
 
