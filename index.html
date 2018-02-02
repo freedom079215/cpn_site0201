@@ -40,7 +40,11 @@ function cID(name) {
   var cidL = cidL.split(".").length;
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
   console.log(cidL+"front OK");
-
+  gtag('config', 'UA-58024657-5', {
+      'user_id':cust_No,
+      'cookie_expires':63072000,
+      'dimension1': TSB_ga_Cookie,
+      });
   }
   else
   {
@@ -62,15 +66,7 @@ function cID(name) {
 
 </script>
 
-<script>
 
-gtag('config', 'UA-58024657-5', {
-    'user_id':cust_No,
-    'cookie_expires':63072000,
-    'dimension1': TSB_ga_Cookie,
-    });
-
-</script>
 
 
 <script type="text/javascript">
@@ -86,6 +82,11 @@ gtag('config', 'UA-58024657-5', {
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
     console.log(cidL+"post OK");
+    gtag('config', 'UA-58024657-5', {
+        'user_id':cust_No,
+        'cookie_expires':63072000,
+        'dimension1': TSB_ga_Cookie,
+        });
     }
     else
     {
