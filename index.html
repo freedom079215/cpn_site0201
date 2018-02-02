@@ -11,10 +11,11 @@ body {
 </style>
 <script type="text/javascript">
 
-  if(document.readyState == 'interactive')
-  {
+  window.onload = function(){
     get_cookie();
+
   }
+
   console.log("front"+document.readyState)
   console.log("run event load");
   function cID(name) {
