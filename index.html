@@ -93,8 +93,9 @@ gtag('config', 'UA-58024657-5', {
 
     }
    }
-
-  document.addEventListener("load", get_cookie);
+  if (document.readyState == 'interactive') {
+    get_cookie();
+  }
 
 </script>
 
