@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>台新銀行</title>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+</style>
+
+
+<script>
+var $_GET = {};
+document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+function decode(s) {
+return decodeURIComponent(s.split("+").join(" "));
+}
+$_GET[decode(arguments[1])] = decode(arguments[2]);
+});
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58024657-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+</script>
+
+
+<script>
+var cust_No = $_GET['utm_term'] ;
+if (cust_No == undefined){var cust_No = null ;}
+function cID(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+</script>
+
+<script type="text/javascript" async>
+
+  if(cID("LisboaCSApersisted")!= null){
+    var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
+  } 
+
+  var cidL = cID("_ga");
+  if(cidL != undefined){
+  var cidL = cidL.split(".").length;
+  var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  console.log("1 GA");
+  gtag('config', 'UA-58024657-5', {
+      'user_id':cust_No,
+      'cookie_expires':63072000,
+      'dimension1': cust_No,
+      'dimension2': TSB_ga_Cookie,
+      'dimension3': TSB_SAS_Cookie,
+      'send_page_view' : false
+      });
+  var threhold = 1;
+  }
+
+
+  get_cookie();
+
+
+
+  function cID(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+ function get_cookie() {
+
+    var cidL = cID("_ga");
+
+    var cidL = cidL.split(".").length;
+    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    gtag('event', 'page_view', {
+        'dimension2': TSB_ga_Cookie
+        });
+    console.log("3 GA");
+
+   }
+
+</script>
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+<div align="center">
+  <table width="1000" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th scope="col"><div align="center"><img src="images/header.jpg" width="1000" height="60" border="0" usemap="#Map" /></div></th>
+    </tr>
+    <tr>
+      <th scope="col"><div align="center"><img src="images/web-1_02.jpg" width="1000" height="786" border="0" usemap="#Map2" /></div></th>
+    </tr>
+    <tr>
+      <td><div align="center"></div></td>
+    </tr>
+    <tr>
+      <td><div align="center"><img src="images/footer.jpg" width="1000" height="40" border="0" /></div></td>
+    </tr>
+  </table>
+  
+  <map name="Map" id="Map">
+    <area shape="rect" coords="30,4,195,47" href="https://www.taishinbank.com.tw/" target="_blank" />
+  </map>
+</div>
+
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="58,413,274,537" href="https://mkp.taishinbank.com.tw/TsCms/event/mk171201" target="_blank" />
+  <area shape="rect" coords="285,414,505,539" href="index2.html" target="_parent" />
+</map>
+</body>
+<script type="text/javascript">
+
+
+</script>
+
+
+</html>
