@@ -15,7 +15,7 @@ body {
   {
     get_cookie();
   }
-  console.log(document.readyState)
+  console.log("front"+document.readyState)
   console.log("run event load");
   function cID(name) {
     var value = "; " + document.cookie;
@@ -96,6 +96,8 @@ function cID(name) {
   if(cID("LisboaCSApersisted")!= null){
     var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
   } 
+  console.log("back"+document.readyState)
+
 </script>
 
 
