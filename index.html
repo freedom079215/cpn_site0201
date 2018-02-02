@@ -60,6 +60,7 @@ function cID(name) {
       'dimension2': TSB_ga_Cookie,
       'dimension3': TSB_SAS_Cookie
       });
+  var threhold = 1;
   }
   else
   {
@@ -81,7 +82,7 @@ function cID(name) {
 <script type="text/javascript">
 
   window.onload = function(){
-    if(cID("_ga") != undefined)
+    if(threhold!= 1)
     {
     get_cookie();
     }
