@@ -73,7 +73,8 @@ function cID(name) {
 
 
 <script type="text/javascript">
-
+  document.addEventListener("load", get_cookie);
+  console.log("run event load");
   function cID(name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
@@ -95,7 +96,6 @@ function cID(name) {
 
     }
    }
-   document.addEventListener("load", get_cookie);
 
 </script>
 
