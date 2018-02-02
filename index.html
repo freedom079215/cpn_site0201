@@ -31,8 +31,10 @@ body {
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
     console.log(cidL+"post OK");
-    gtag('event', 'page_view', {
-        'dimension1': TSB_ga_Cookie,
+    gtag('config', 'UA-58024657-5', {
+        'user_id':cust_No,
+        'cookie_expires':63072000,
+        'dimension1': TSB_ga_Cookie
         });
     }
     else
@@ -89,7 +91,7 @@ function cID(name) {
   }
   else
   {
-    gtag('config', 'UA-58024657-5');
+    //gtag('config', 'UA-58024657-5');
 
     console.log(cidL+"not front OK");
 
