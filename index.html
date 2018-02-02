@@ -42,6 +42,11 @@ function cID(name) {
   console.log(cidL+"front OK");
 
   }
+  else
+  {
+    console.log(cidL+"not post OK");
+
+  }
   if(cID("LisboaCSApersisted")!= null){
     var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
   } 
@@ -54,7 +59,6 @@ function cID(name) {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  console.log('0');
 
 </script>
 
@@ -82,6 +86,11 @@ gtag('config', 'UA-58024657-5', {
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
     console.log(cidL+"post OK");
+    }
+    else
+    {
+      console.log(cidL+"not post OK");
+
     }
    }
 
