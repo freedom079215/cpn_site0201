@@ -39,6 +39,8 @@ function cID(name) {
   if(cidL != undefined){
   var cidL = cidL.split(".").length;
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  console.log(cidL+"front OK");
+
   }
   if(cID("LisboaCSApersisted")!= null){
     var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
@@ -79,6 +81,7 @@ gtag('config', 'UA-58024657-5', {
     if(cidL != undefined){
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    console.log(cidL+"post OK");
     }
    }
 
