@@ -23,6 +23,30 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script>
+var cust_No = $_GET['utm_term'] ;
+if (cust_No == undefined){var cust_No = null ;}
+function cID(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+</script>
+
+<script type="text/javascript" async>
+  var cidL = cID("_ga");
+  if(cidL != undefined){
+  var cidL = cidL.split(".").length;
+  var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  }
+  if(cID("LisboaCSApersisted")!= null){
+    var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
+  } 
+</script>
+
+
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58024657-5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -33,7 +57,13 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 </script>
 
 <script>
-gtag('config', 'UA-58024657-5');
+
+gtag('config', 'UA-58024657-5', {
+    'user_id':cust_No,
+    'cookie_expires':63072000,
+    'dimension1': TSB_ga_Cookie,
+    });
+
 </script>
 
 
@@ -45,8 +75,11 @@ gtag('config', 'UA-58024657-5');
     if (parts.length == 2) return parts.pop().split(";").shift();
   }
  function get_cookie() {
-     var cidL = cID("_ga").split(".").length;
-     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    var cidL = cID("_ga");
+    if(cidL != undefined){
+    var cidL = cidL.split(".").length;
+    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    }
    }
 
   document.addEventListener("load", get_cookie);
