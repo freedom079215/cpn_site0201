@@ -9,40 +9,7 @@ body {
 	margin-top: 0px;
 }
 </style>
-<script type="text/javascript">
 
-  window.onload = function(){
-    get_cookie();
-
-  }
-
-  console.log("front"+document.readyState)
-  console.log("run event load");
-  function cID(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-  }
- function get_cookie() {
-    console.log("Run get cookie");
-
-    var cidL = cID("_ga");
-    if(cidL != undefined){
-    var cidL = cidL.split(".").length;
-    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
-    console.log(cidL+"post OK");
-    gtag('event', 'page_view', {
-        'dimension1': TSB_ga_Cookie,
-        });
-    }
-    else
-    {
-      console.log(cidL+"not post OK");
-
-    }
-   }
-
-</script>
 
 <script>
 var $_GET = {};
@@ -76,6 +43,12 @@ function cID(name) {
 </script>
 
 <script type="text/javascript" async>
+
+  if(cID("LisboaCSApersisted")!= null){
+    var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
+  } 
+
+  console.log("back"+document.readyState)
   var cidL = cID("_ga");
   if(cidL != undefined){
   var cidL = cidL.split(".").length;
@@ -84,25 +57,61 @@ function cID(name) {
   gtag('config', 'UA-58024657-5', {
       'user_id':cust_No,
       'cookie_expires':63072000,
-      'dimension1': TSB_ga_Cookie,
+      'dimension1': cust_No,
+      'dimension2': TSB_ga_Cookie,
+      'dimension3': TSB_SAS_Cookie
       });
   }
   else
   {
-    gtag('config', 'UA-58024657-5');
+    gtag('config', 'UA-58024657-5', {
+        'user_id':cust_No,
+        'cookie_expires':63072000,
+        'dimension1': cust_No,
+        'dimension3': TSB_SAS_Cookie
+        });
 
     console.log(cidL+"not front OK");
 
   }
-  if(cID("LisboaCSApersisted")!= null){
-    var TSB_SAS_Cookie = cID("LisboaCSApersisted").split("_")[2];
-  } 
-  console.log("back"+document.readyState)
+
 
 </script>
 
 
+<script type="text/javascript">
 
+  window.onload = function(){
+    if(cID("_ga") != undefined)
+    {
+    get_cookie();
+    }
+
+  }
+
+  console.log("front"+document.readyState)
+  console.log("run event load");
+
+
+  function cID(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+ function get_cookie() {
+    console.log("Run get cookie");
+
+    var cidL = cID("_ga");
+
+    var cidL = cidL.split(".").length;
+    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    console.log(cidL+"post OK");
+    gtag('event', 'page_view', {
+        'dimension2': TSB_ga_Cookie
+        });
+   }
+
+</script>
 
 
 
