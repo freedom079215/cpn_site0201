@@ -82,6 +82,8 @@ function cID(name) {
     if (parts.length == 2) return parts.pop().split(";").shift();
   }
  function get_cookie() {
+    console.log("Run get cookie");
+
     var cidL = cID("_ga");
     if(cidL != undefined){
     var cidL = cidL.split(".").length;
