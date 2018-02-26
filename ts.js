@@ -1,6 +1,5 @@
 
-
-document.write("<script async src='https://www.googletagmanager.com/gtag/js?id=UA-109454817-1'></script>");
+document.write("<script src='https://www.googletagmanager.com/gtag/js?id=UA-109454817-1'></script>");
 
 var $_GET = {};
 
