@@ -92,7 +92,7 @@ function cID(name) {
   else
 
   {
-
+    console.log('no_ga');
     gtag('config', 'UA-109454817-1', {
 
         'user_id':cust_No,
@@ -120,7 +120,7 @@ function cID(name) {
     if(threhold!= 1)
 
     {
-
+    console.log("there is ga")
     get_cookie();
 
     }
