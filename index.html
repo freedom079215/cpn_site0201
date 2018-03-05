@@ -12,12 +12,64 @@ body {
 
 
 
- 
-
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109454817-1"></script>-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549078-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+ 
+<!-- cID Function:獲取瀏覽器cookie資料的Function,傳入所需要的cookie name即可獲得cookieid value --> 
+<script>
+function cID(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+</script>
 
-<script src="https://freedom079215.github.io/cpn_site0201/ts_gtm.js"></script>
+ 
+<script type="text/javascript" async>
+  var cidL = cID("_ga"); // 獲取GA cookie，此為必要傳送，請不得修改
+  if(cidL != undefined){ // 若訪客為第一次造訪，執行cID Function時，GA cookie可能尚未建立，若判斷非undefined為非首次造訪，則執行下列程式碼
+  var cidL = cidL.split(".").length; 
+  var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  gtag('config', 'UA-106549078-1', { //非第一次造訪者，啟動將資料傳送至GA的Gtag code
+      'cookie_expires':63072000,
+      'dimension2': TSB_ga_Cookie, //GA cookie 必傳，否則無法在行內DW識別客戶資料
+      'dimension4': nbuuid //nbuuid此處-照您原先定義填入
+      });
+  var threhold = 1; //若非為第一次造訪，則threhold = 1
+  }
+  else //因此若判斷非為undefined 訪客為第一次造訪，則執行下列程式碼
+  {
+    gtag('config', 'UA-106549078-1', {
+        'cookie_expires':63072000,
+        'dimension4': nbuuid, //nbuuid此處-照您原先定義填入
+        'send_page_view' : false //先暫停傳送資料至GA
+        });
+  }
+</script>
+ 
+ 
+<script type="text/javascript">
+  window.onload = function(){
+    if(threhold!= 1) //若為第一次造訪，則執行get_cookie function
+    {
+    get_cookie();
+    }
+  }
+
+ function get_cookie() { // get_cookie function:取得GA cookieID Value 並且傳送資料至GA
+    var cidL = cID("_ga");
+    var cidL = cidL.split(".").length;
+    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    gtag('event', 'page_view', {
+        'dimension2': TSB_ga_Cookie
+        });
+   }
+</script>
 
 
 
