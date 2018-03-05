@@ -31,6 +31,7 @@ function cID(name) {
 
  
 <script type="text/javascript" async>
+  var nbuuid = null;
   var cidL = cID("_ga"); // 獲取GA cookie，此為必要傳送，請不得修改
   if(cidL != undefined){ // 若訪客為第一次造訪，執行cID Function時，GA cookie可能尚未建立，若判斷非undefined為非首次造訪，則執行下列程式碼
   var cidL = cidL.split(".").length; 
