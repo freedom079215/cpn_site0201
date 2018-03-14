@@ -37,6 +37,7 @@ function cID(name) {
   console.log('teest1')
   var cidL = cidL.split(".").length; 
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+  document.getElementById("demo").innerHTML = "產生 GA Cookie:"+TSB_ga_Cookie;
   gtag('config', 'UA-106549078-1', { //非第一次造訪者，啟動將資料傳送至GA的Gtag code
       'cookie_expires':63072000,
       'dimension2': TSB_ga_Cookie, //GA cookie 必傳，否則無法在行內DW識別客戶資料
@@ -47,7 +48,7 @@ function cID(name) {
   else //因此若判斷非為undefined 訪客為第一次造訪，則執行下列程式碼
   {
   	console.log('teest2')
-
+  	document.getElementById("demo").innerHTML = "第一次造訪尚未產生 GA Cookie:"+TSB_ga_Cookie;
     gtag('config', 'UA-106549078-1', {
         'cookie_expires':63072000,
         'dimension4': nbuuid, //nbuuid此處-照您原先定義填入
@@ -73,6 +74,8 @@ function cID(name) {
     var cidL = cID("_ga");
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+    document.getElementById("demo").innerHTML = "第一次造訪產生 GA Cookie:"+TSB_ga_Cookie;
+
     gtag('event', 'page_view', {
         'dimension2': TSB_ga_Cookie
         });
@@ -90,12 +93,16 @@ function cID(name) {
 </head>
 
 <body>
+<p>確認是否為第一次造訪中...</p>
+<p id="show"></p>
+
+
 <div align="center">
   <table width="1000" border="0" cellspacing="0" cellpadding="0">
     <tr>
     </tr>
     <tr>
-      <th scope="col"><div align="center"><img src="./images/husky.jpg" width="1000" height="786" border="0" usemap="#Map2" /></div></th>
+      <th scope="col"><div align="center"></div></th>
     </tr>
     <tr>
       <td><div align="center"></div></td>
