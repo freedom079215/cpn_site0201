@@ -61,11 +61,15 @@ function cID(name) {
   window.onload = function(){
     if(threhold!= 1) //若為第一次造訪，則執行get_cookie function
     {
+    console.log('teest3')
+
     get_cookie();
     }
   }
 
  function get_cookie() { // get_cookie function:取得GA cookieID Value 並且傳送資料至GA
+ 	console.log('teest4')
+
     var cidL = cID("_ga");
     var cidL = cidL.split(".").length;
     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
