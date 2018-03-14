@@ -34,6 +34,7 @@ function cID(name) {
   var nbuuid = "string";
   var cidL = cID("_ga"); // 獲取GA cookie，此為必要傳送，請不得修改
   if(cidL != undefined){ // 若訪客為第一次造訪，執行cID Function時，GA cookie可能尚未建立，若判斷非undefined為非首次造訪，則執行下列程式碼
+  console.log('teest1')
   var cidL = cidL.split(".").length; 
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
   gtag('config', 'UA-106549078-1', { //非第一次造訪者，啟動將資料傳送至GA的Gtag code
@@ -45,6 +46,8 @@ function cID(name) {
   }
   else //因此若判斷非為undefined 訪客為第一次造訪，則執行下列程式碼
   {
+  	console.log('teest2')
+
     gtag('config', 'UA-106549078-1', {
         'cookie_expires':63072000,
         'dimension4': nbuuid, //nbuuid此處-照您原先定義填入
