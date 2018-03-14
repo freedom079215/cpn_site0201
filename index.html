@@ -38,7 +38,7 @@ function cID(name) {
   console.log('teest1')
   var cidL = cidL.split(".").length; 
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
-  document.getElementById("show").innerHTML = "產生 GA Cookie:"+TSB_ga_Cookie;
+  document.getElementById("show").innerHTML = "已造訪過， GA Cookie為:"+TSB_ga_Cookie;
   gtag('config', 'UA-106549078-1', { //非第一次造訪者，啟動將資料傳送至GA的Gtag code
       'cookie_expires':63072000,
       'dimension2': TSB_ga_Cookie, //GA cookie 必傳，否則無法在行內DW識別客戶資料
