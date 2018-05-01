@@ -24,11 +24,11 @@ $_GET[decode(arguments[1])] = decode(arguments[2]);
 
 
 
-  window.dataLayer = window.dataLayer || [];
+  // window.dataLayer = window.dataLayer || [];
 
-  function gtag(){dataLayer.push(arguments);}
+  // function gtag(){dataLayer.push(arguments);}
 
-  gtag('js', new Date());
+  // gtag('js', new Date());
 
 
 
@@ -67,6 +67,8 @@ function cID(name) {
 
   if(cidL != undefined){
 
+  console.log('go')
+
   var cidL = cidL.split(".").length;
 
   var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
@@ -79,9 +81,7 @@ function cID(name) {
 
       'dimension1': cust_No,
 
-      'dimension2': TSB_ga_Cookie,
-
-      'dimension3': TSB_SAS_Cookie
+      'dimension2': TSB_ga_Cookie
 
       });
 
