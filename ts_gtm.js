@@ -2,7 +2,7 @@
 var script = document.createElement('script');
 script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-109454817-1';
 script.async =true;
-document.head.appendChild(script);
+document.body.appendChild(script);
 
 window.dataLayer = window.dataLayer || [];
 
