@@ -16,6 +16,18 @@ body {
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549078-1"></script> -->
 <script type="text/javascript">
+  function get_cookie() { // get_cookie function:取得GA cookieID Value 並且傳送資料至GA
+    console.log('teest4')
+
+     var cidL = cID("_ga");
+     var cidL = cidL.split(".").length;
+     var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
+     document.getElementById("show").innerHTML = "第一次造訪產生 GA Cookie:"+TSB_ga_Cookie;
+
+     gtag('event', 'page_view', {
+         'dimension2': TSB_ga_Cookie
+         });
+    }
   var script = document.createElement('script');
   script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-106549078-1';
   script.onload = get_cookie; // thx @Cookie_Monster
@@ -76,18 +88,7 @@ function cID(name) {
   //   }
   // }
 
- function get_cookie() { // get_cookie function:取得GA cookieID Value 並且傳送資料至GA
- 	console.log('teest4')
 
-    var cidL = cID("_ga");
-    var cidL = cidL.split(".").length;
-    var TSB_ga_Cookie = cID("_ga").split(".")[cidL-2] + "." + cID("_ga").split(".")[cidL-1];
-    document.getElementById("show").innerHTML = "第一次造訪產生 GA Cookie:"+TSB_ga_Cookie;
-
-    gtag('event', 'page_view', {
-        'dimension2': TSB_ga_Cookie
-        });
-   }
 </script>
 
 
