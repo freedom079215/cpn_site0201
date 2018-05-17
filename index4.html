@@ -13,24 +13,38 @@ body {
 <p>確認是否為第一次造訪中...</p>
 <p id="show"></p>
 
+<script>
+var $_GET = {};
+document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+function decode(s) {
+return decodeURIComponent(s.split("+").join(" "));
+}
+$_GET[decode(arguments[1])] = decode(arguments[2]);
+});
+</script>
+<script>
+// cust_no
+var cust_no = $_GET['utm_term'] ;
+if (cust_no == undefined){var cust_no = null ;}
+ 
+// nbuuid
+ if (nbuuid == undefined){var nbuuid = null ;} 
+</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549078-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74878556-1"></script>
 
 <script>
-  var nbuuid = "string";
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config','UA-12345678-1',{
-
+  gtag('config','UA-74878556-1',{
        'custom_map': {
             'dimension2': 'client_id'
         },
-        'dimension4': nbuuid 
-
+    'dimension1': cust_no,
+    'dimension4': nbuuid  
    });
-
 </script>
  
 
